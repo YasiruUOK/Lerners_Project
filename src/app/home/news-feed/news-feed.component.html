@@ -1,0 +1,46 @@
+<h2><span class="badge bg-primary">News & Updates</span></h2>
+<div class="accordion" id="accordionExample">
+    <!-- <div class="accordion-item" *ngFor="let newsFeedList of newsFeedLists | slice:0:1">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {{ newsFeedList.topic }}
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ newsFeedList.news }}
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item" *ngFor="let newsFeedList of newsFeedLists | slice:1:2">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                {{ newsFeedList.topic }}
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ newsFeedList.news }}
+            </div>
+        </div>
+    </div> -->
+    <div class="accordion-item" *ngFor="let newsFeedList of newsFeedLists; let RowIndex = index">
+        <h2 class="accordion-header" id="heading">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            [attr.data-bs-target]="'#collapse'+RowIndex" aria-expanded="false" aria-controls="collapse">
+                {{ newsFeedList.topic }}
+            </button>
+        </h2>
+        <div id="collapse{{RowIndex}}" class="accordion-collapse collapse" aria-labelledby="heading"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                {{ newsFeedList.news }}
+            </div>
+            <img src="{{ newsFeedList.image_URL }}"/>
+        </div>
+    </div>
+</div>
