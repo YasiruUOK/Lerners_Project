@@ -10,6 +10,7 @@ import { ServiceComponent } from './service/service.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
+import { DownloadsComponent } from './downloads/downloads.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NewsFeedComponent } from './home/news-feed/news-feed.component';
     AboutUsComponent,
     ServiceComponent,
     NewsFeedComponent,
+    DownloadsComponent,
   ],
   imports: [
     BrowserModule,
