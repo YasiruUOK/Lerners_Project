@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NewsFeed } from './news-feed.model';
+import { NewsFeed } from '../model/news-feed.model';
 
 @Injectable({
   providedIn: 'root'

@@ -11,6 +11,8 @@ import { ServiceComponent } from './service/service.component';
 import {HttpClientModule} from '@angular/common/http';
 import { NewsFeedComponent } from './home/news-feed/news-feed.component';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { CheckResultsComponent } from './service/check-results/check-results.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { DownloadsComponent } from './downloads/downloads.component';
     ServiceComponent,
     NewsFeedComponent,
     DownloadsComponent,
+    CheckResultsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgImageSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
