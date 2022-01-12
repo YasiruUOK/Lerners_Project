@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Results } from 'src/app/model/results.model';
 import { ResultsService } from 'src/app/services/results.service';
+import { Router } from "@angular/router";
+import { ViewportScroller } from "@angular/common";
 
 @Component({
   selector: 'app-check-results',
@@ -11,10 +13,19 @@ import { ResultsService } from 'src/app/services/results.service';
 export class CheckResultsComponent implements OnInit {
   Result: Results={
     indexNumber:-1,
-    result:''
+    result:'',
+    fullName:'',
+    nameWithInitials:'',
+    address:'',
+    validTill:new Date((new Date()).getTime() + 24*60*60*1000),
+    categoryA:false,
+    categoryB:false,
+    categoryC:false,
+    validTillDateFormat:'',
+    categoryList:''
   };
 
-  constructor(private resultService:ResultsService) { }
+  constructor(private resultService:ResultsService, private router: Router, private scroller: ViewportScroller) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +38,7 @@ export class CheckResultsComponent implements OnInit {
       .subscribe(
         data => {
           this.Result = data;
+          this.scroller.scrollToAnchor("resultDiv");
         },
         error => {
           console.log(error);

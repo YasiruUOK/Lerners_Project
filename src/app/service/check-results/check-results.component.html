@@ -1,10 +1,10 @@
 <br>
 <br>
-<div style="margin-left: 30%;">
+<div style="margin-left: 40%;">
     <h2>Search Results</h2>
 </div>
 <br>
-<form class="row g-4" style="margin-left: 25%;" #checkResultForm="ngForm" (ngSubmit)="onSubmit(checkResultForm)">
+<form class="row g-4" style="margin-left: 35%;" #checkResultForm="ngForm" (ngSubmit)="onSubmit(checkResultForm)">
 
     <div class="col-auto">
         <input type="number" id="indexNumber" name="indexNumber" ngModel placeholder="Enter Your Index Number" style="width: 300px;">
@@ -13,12 +13,34 @@
         <button type="submit" class="btn btn-primary mb-3">Search Results</button>
     </div>
 </form>
-<div>
-    <label id="lblResult"></label></div>
 
-<ul class="heroes">
-    <!-- <li *ngFor="let result of Result"> -->
-    <span class="badge" *ngIf="Result">{{Result.indexNumber}} - {{Result.result}}</span>
-    <label id="lblResult" *ngIf="Result.indexNumber!=-1">{{Result.indexNumber}} - {{Result.result}}</label>
-    <!-- </li> -->
-</ul>
+
+<div class="container" id="resultDiv">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <tbody>
+                    <tr *ngIf="Result.indexNumber!=-1">
+                        <td>Index Number</td>
+                        <td>Result</td>
+                        <td>Full Name</td>
+                        <td>Name with Initials</td>
+                        <td>Address</td>
+                        <td>Valid Till</td>
+                        <td>Allowed Category</td>
+                    </tr>
+                    <tr *ngIf="Result.indexNumber!=-1">
+                        <td>{{Result.indexNumber}}</td>
+                        <td>{{Result.result}}</td>
+                        <td>{{Result.fullName}}</td>
+                        <td>{{Result.nameWithInitials}}</td>
+                        <td>{{Result.address}}</td>
+                        <td>{{Result.validTillDateFormat}}</td>
+                        <td>{{Result.categoryList}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
